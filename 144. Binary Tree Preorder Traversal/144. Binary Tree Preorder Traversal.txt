@@ -1,0 +1,17 @@
+class Solution(object):
+    def preorderTraversal(self, root):
+        """
+        :type root: TreeNode
+        :rtype: List[int]
+        """
+        result = []
+        
+        def preorder(node):
+            if node is None:
+                return
+            result.append(node.val)  # Visit the current node
+            preorder(node.left)     # Recursively traverse the left subtree
+            preorder(node.right)    # Recursively traverse the right subtree
+        
+        preorder(root)  # Start the traversal from the root
+        return result
